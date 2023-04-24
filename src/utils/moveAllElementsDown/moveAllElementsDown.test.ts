@@ -1,7 +1,7 @@
-import { moveElementsDown } from "./moveElementsDown";
+import { moveAllElementsDown } from "./moveAllElementsDown";
 import { Board } from "@/types";
 
-describe.only("moveElementsDown", () => {
+describe.only("moveAllElementsDown", () => {
   it("moves elements down to fill empty spaces at the bottom of their respective rows", () => {
     // prettier-ignore
     const board :Board= [
@@ -35,7 +35,7 @@ describe.only("moveElementsDown", () => {
       '', '', 'r', '', 'y', ''
     ];
 
-    const resultArray = moveElementsDown(board);
+    const resultArray = moveAllElementsDown(board);
     expect(resultArray).toEqual(expectedArray);
   });
 });

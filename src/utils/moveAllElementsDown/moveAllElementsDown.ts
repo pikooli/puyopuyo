@@ -1,7 +1,7 @@
 import { NUM_ROWS, NUM_COLS } from "@/constants";
 import { Board } from "@/types";
 
-export function moveElementsDown(board: Board) {
+export function moveAllElementsDown(board: Board) {
   for (let col = 0; col < NUM_COLS; col++) {
     for (let row = 0; row < NUM_ROWS; row++) {
       if (
