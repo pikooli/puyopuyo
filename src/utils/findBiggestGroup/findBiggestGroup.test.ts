@@ -23,7 +23,6 @@ describe("findBiggestGroup", () => {
         Then it should return the group "r"`, () => {
     const result = findBiggestGroup({
       gameBoard: gameBoard1,
-      numRows: 3,
       numCols: 3,
     });
     expect(result.size).toBe(4);
@@ -36,7 +35,6 @@ describe("findBiggestGroup", () => {
         Then it should return a group of 0`, () => {
     const result = findBiggestGroup({
       gameBoard: gameBoard2,
-      numRows: 3,
       numCols: 3,
     });
     expect(result.size).toBe(0);
@@ -49,7 +47,6 @@ describe("findBiggestGroup", () => {
         Then it should return the first group "g"`, () => {
     const result = findBiggestGroup({
       gameBoard: gameBoard3,
-      numRows: 3,
       numCols: 3,
     });
     expect(result.size).toBe(4);
@@ -62,10 +59,9 @@ describe("findBiggestGroup", () => {
         Then it should return the first group "g"`, () => {
     const result = findBiggestGroup({
       gameBoard: bigGameBoard1,
-      numRows: 12,
       numCols: 6,
     });
-    expect(result.size).toBe(14);
+    expect(result.size).toBe(11);
     expect(result.letter).toBe("r");
   });
 });

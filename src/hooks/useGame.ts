@@ -15,12 +15,16 @@ export function useGame() {
   });
 
   useMoveKeydown({
-    reactToMove: (move) => console.log("useMoveKeydown", move),
+    reactToMove: (move) => {
+      if (move === "ArrowDown") {
+        setBoard((prev) => [...moveElementsDown(prev)]);
+      }
+    },
   });
 
-  useEffect(() => {
-    setBoard((prev) => moveElementsDown(prev));
-  }, []);
+  // useEffect(() => {
+  //   setBoard((prev) => moveElementsDown(prev));
+  // }, []);
 
   return {
     board,

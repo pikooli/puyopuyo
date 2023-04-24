@@ -1,9 +1,9 @@
 import { useCallback, useEffect } from "react";
 import { KEY_MOVE } from "@/constants";
-import { ArrowKey, Position } from "@/types";
+import { ArrowKey } from "@/types";
 
 export interface UseMoveKeydown {
-  reactToMove(move: Position): void;
+  reactToMove(move: ArrowKey): void;
 }
 
 export function useMoveKeydown(props: UseMoveKeydown) {
