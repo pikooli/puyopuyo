@@ -1,8 +1,9 @@
-import React, { useState, createContext } from "react";
+import { useEffect, useState } from "react";
 import { Board } from "@/types";
 import { defaultBoard } from "@/context";
 import { useMoveKeydown } from "@/hooks/useMoveKeydown";
 import { useActionKeydown } from "@/hooks/useActionKeydown";
+import { moveElementsDown } from "@/utils/";
 
 export function useGame() {
   const [board, setBoard] = useState<Board>(defaultBoard);
@@ -16,6 +17,10 @@ export function useGame() {
   useMoveKeydown({
     reactToMove: (move) => console.log("useMoveKeydown", move),
   });
+
+  useEffect(() => {
+    setBoard((prev) => moveElementsDown(prev));
+  }, []);
 
   return {
     board,

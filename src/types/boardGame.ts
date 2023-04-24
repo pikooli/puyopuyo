@@ -1,5 +1,5 @@
 export type BoardGame = JSX.Element[][];
-export type SlimeColor = "" | "red" | "blue" | "green" | "yellow";
+export type SlimeColor = "" | "r" | "b" | "g" | "y";
 export type Board = SlimeColor[];
 export type ArrowKey = "ArrowUp" | "ArrowDown" | "ArrowLeft" | "ArrowRight";
 export type ActionKey = "KeyQ" | "KeyW";

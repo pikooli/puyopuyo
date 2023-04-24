@@ -39,4 +39,5 @@ export default function Home() {
 
 const stageStyle = {
   backgroundColor: "white",
+  border: "1px solid black",
 };

@@ -1,5 +1,6 @@
 import { useCallback } from "react";
-// import { conversionMap } from "@/utils";
+
+import { conversionMap } from "@/utils";
 import { Sprite } from "@pixi/react";
 import { GRID_SIZE, NUM_ROWS } from "@/constants";
 import { SlimeColor } from "@/types";
@@ -11,17 +12,17 @@ export function useGameStage() {
 
   const mapTextures = useCallback(() => {
     return board.map((el: SlimeColor, idx: number) => {
-      // const title = conversionMap[el];
-
+      const slim = conversionMap[el];
+      if (!slim) {
+        return;
+      }
       const x = Math.floor(idx % NUM_ROWS);
       const y = Math.floor(idx / NUM_ROWS);
-
-      console.log(idx, x, y);
 
       return (
         <Sprite
           key={idx}
-          image="https://pixijs.io/pixi-react/img/bunny.png"
+          image={slim}
           {...{ x: x * GRID_SIZE, y: y * GRID_SIZE }}
           anchor={[0, 0]}
         />

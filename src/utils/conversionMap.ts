@@ -1,7 +1,7 @@
 export const conversionMap = {
-  red: "r",
-  blue: "b",
-  green: "g",
-  yellow: "y",
+  r: "static/puyopuyo/red.png",
+  b: "static/puyopuyo/blue.png",
+  g: "static/puyopuyo/green.png",
+  y: "static/puyopuyo/yellow.png",
   "": "",
 };
