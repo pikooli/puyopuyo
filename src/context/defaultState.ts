@@ -1,8 +1,6 @@
 import { Board, PlayerSet } from "@/types";
 // prettier-ignore
 export const defaultBoard :Board= [
-  '', '', 'g', '', '', '',
-  '', '', 'r', '', '', '',
   '', '', '', '', '', '',
   '', '', '', '', '', '',
   '', '', '', '', '', '',
@@ -12,7 +10,9 @@ export const defaultBoard :Board= [
   '', '', '', '', '', '',
   '', '', '', '', '', '',
   '', '', '', '', '', '',
-  '', '', 'y', 'y', 'y', ''
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  'y', 'y', 'y', 'y', 'y', 'y'
 ]
 
 export const defaultPlayerSet: PlayerSet = [

@@ -24,16 +24,17 @@ describe("moveElementsDown", () => {
     ];
 
     // prettier-ignore
-    const expectedArray = [
-      '', '', '',  '', '', '', '', '', '',  '', '',  '',
-      '', '', 'g', '', '', '', '', '', 'r', '', '',  '',
-      '', '', '',  '', '', '', '', '', '',  '', '',  '',
-      '', '', '',  '', '', '', '', '', '',  '', '',  '',
-      '', '', '',  '', '', '', '', '', '',  '', '',  '',
-      '', '', '',  '', '', '', '', '', '',  '', 'y', ''
+    const expectedNewPlayerSet = [
+      { color: "g", position: 8 },
+      { color: "r", position: 14 },
     ];
 
-    const result = movePlayerSetDown({ board, playerSet });
-    expect(result.newBoard).toEqual(expectedArray);
+    const newPlayerSet = movePlayerSetDown({ board, playerSet });
+    expect(newPlayerSet?.[0].position).toEqual(
+      expectedNewPlayerSet[0].position
+    );
+    expect(newPlayerSet?.[1].position).toEqual(
+      expectedNewPlayerSet[1].position
+    );
   });
 });
