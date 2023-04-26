@@ -4,3 +4,5 @@ export * from "./moveAllElementsDown/moveAllElementsDown";
 export * from "./movePlayerSetDown/movePlayerSetDown";
 export * from "./movePlayerSetLeft/movePlayerSetLeft";
 export * from "./movePlayerSetRight/movePlayerSetRight";
+export * from "./setPlayerSlimInBoard/setPlayerSlimInBoard";
+export * from "./rotatePlayerSetToLeft/rotatePlayerSetToLeft";

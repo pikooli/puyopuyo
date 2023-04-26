@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { Board, PlayerSet } from "@/types";
+import { Board, PlayerSet, ActionKey } from "@/types";
 import { defaultBoard, defaultPlayerSet } from "@/context";
 import { useMoveKeydown } from "@/hooks/useMoveKeydown";
 import { useActionKeydown } from "@/hooks/useActionKeydown";
@@ -7,27 +7,51 @@ import {
   moveAllElementsDown,
   movePlayerSetLeft,
   movePlayerSetRight,
+  setPlayerSlimInBoard,
+  rotatePlayerSetToLeft,
 } from "@/utils/";
-import { KEY_MOVE } from "@/constants";
+import { KEY_MOVE, KEY_ACTION } from "@/constants";
 
 export function useGame() {
   const [board, setBoard] = useState<Board>(defaultBoard);
   const [playerSet, setPlayerSet] = useState<PlayerSet>(defaultPlayerSet);
 
-  useActionKeydown({
-    reactToAction: (action) => {
-      console.log("useActionKeydown", action);
+  const reactToAction = useCallback(
+    (action: ActionKey) => {
+      switch (action) {
+        case KEY_ACTION["KeyQ"]:
+          setPlayerSet((prev) => {
+            const newPlayerSet = rotatePlayerSetToLeft({
+              board,
+              playerSet: prev,
+            });
+            return newPlayerSet || prev;
+          });
+          break;
+      }
     },
+    [board]
+  );
+
+  useActionKeydown({
+    reactToAction,
   });
 
   const reactToMove = useCallback(
     (move: any) => {
       switch (move) {
         case KEY_MOVE["ArrowDown"]:
-          setBoard((prev) => {
-            setPlayerSet([]);
-            return moveAllElementsDown(prev);
+          setPlayerSet((prevPlayerSet) => {
+            const newBoard = moveAllElementsDown(
+              setPlayerSlimInBoard({
+                board: board,
+                playerSet: prevPlayerSet,
+              })
+            );
+            setBoard(newBoard);
+            return [];
           });
+
           break;
         case KEY_MOVE["ArrowRight"]:
           setPlayerSet((prev) => {

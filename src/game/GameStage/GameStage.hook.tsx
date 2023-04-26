@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { conversionMap } from "@/utils";
 import { Sprite } from "@pixi/react";
-import { GRID_SIZE, NUM_ROWS, NUM_COLS } from "@/constants";
+import { GRID_SIZE, NUM_ROWS } from "@/constants";
 import { useContext } from "react";
 import { PuyoPuyoContext } from "@/context";
 import { movePlayerSetDown } from "@/utils/";
@@ -13,7 +13,7 @@ export function useGameStage() {
 
   useTick((delta) => {
     if (playerSet.length) {
-      if (time > 6) {
+      if (time > 100) {
         const newPlayerSet = movePlayerSetDown({
           board,
           playerSet,

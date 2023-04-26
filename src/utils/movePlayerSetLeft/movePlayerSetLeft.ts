@@ -8,6 +8,11 @@ interface MovePlayerSetLeft {
 
 export function movePlayerSetLeft(props: MovePlayerSetLeft): PlayerSet | null {
   const { board, playerSet } = props;
+
+  if (!playerSet.length) {
+    return null;
+  }
+
   const slim1 = playerSet[0];
   const slim2 = playerSet[1];
   const outOfBound =

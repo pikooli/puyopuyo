@@ -1,7 +1,7 @@
 import { movePlayerSetLeft } from "./movePlayerSetLeft";
 import { Board, PlayerSet } from "@/types";
 
-describe("moveElementsDown", () => {
+describe("movePlayerSetLeft", () => {
   it("moves elements down to fill empty spaces at the bottom of their respective rows one time", () => {
     // prettier-ignore
     const board :Board= [

@@ -1,10 +1,30 @@
-import { moveAllElementsDown } from "./moveAllElementsDown";
-import { Board } from "@/types";
+import { setPlayerSlimInBoard } from "./setPlayerSlimInBoard";
+import { Board, PlayerSet } from "@/types";
 
-describe("moveAllElementsDown", () => {
-  it("moves elements down to fill empty spaces at the bottom of their respective rows", () => {
+describe("setPlayerSlimInBoard", () => {
+  it("test 1", () => {
     // prettier-ignore
     const board :Board= [
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', 'y', ''
+    ]
+    const playerSet: PlayerSet = [
+      { color: "g", position: 2 },
+      { color: "r", position: 8 },
+    ];
+
+    // prettier-ignore
+    const expectedBoard :Board= [
       '', '', 'g', '', '', '',
       '', '', 'r', '', '', '',
       '', '', '', '', '', '',
@@ -19,23 +39,7 @@ describe("moveAllElementsDown", () => {
       '', '', '', '', 'y', ''
     ]
 
-    // prettier-ignore
-    const expectedArray = [
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', 'g', '', '', '',
-      '', '', 'r', '', 'y', ''
-    ];
-
-    const resultArray = moveAllElementsDown(board);
-    expect(resultArray).toEqual(expectedArray);
+    const newBoard = setPlayerSlimInBoard({ board, playerSet });
+    expect(newBoard).toEqual(expectedBoard);
   });
 });

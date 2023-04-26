@@ -15,6 +15,6 @@ export const KEY_MOVE: { [key in ArrowKey]: ArrowKey } = {
 };
 
 export const KEY_ACTION: { [key in ActionKey]: string } = {
-  KeyQ: "rotateLeft",
-  KeyW: "rotateRight",
+  KeyQ: "KeyQ",
+  KeyW: "KeyW",
 };
