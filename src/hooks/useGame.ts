@@ -9,6 +9,7 @@ import {
   movePlayerSetRight,
   setPlayerSlimInBoard,
   rotatePlayerSetToLeft,
+  rotatePlayerSetToRight,
 } from "@/utils/";
 import { KEY_MOVE, KEY_ACTION } from "@/constants";
 
@@ -22,6 +23,15 @@ export function useGame() {
         case KEY_ACTION["KeyQ"]:
           setPlayerSet((prev) => {
             const newPlayerSet = rotatePlayerSetToLeft({
+              board,
+              playerSet: prev,
+            });
+            return newPlayerSet || prev;
+          });
+          break;
+        case KEY_ACTION["KeyW"]:
+          setPlayerSet((prev) => {
+            const newPlayerSet = rotatePlayerSetToRight({
               board,
               playerSet: prev,
             });
