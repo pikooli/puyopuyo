@@ -1,32 +1,12 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { conversionMap } from "@/utils";
 import { Sprite } from "@pixi/react";
 import { GRID_SIZE, NUM_ROWS } from "@/constants";
 import { useContext } from "react";
 import { PuyoPuyoContext } from "@/context";
-import { movePlayerSetDown } from "@/utils/";
-import { useTick } from "@pixi/react";
 
-export function useGameStage() {
-  const { board, playerSet, setPlayerSet } = useContext(PuyoPuyoContext);
-  const [time, setTime] = useState(0);
-
-  useTick((delta) => {
-    if (playerSet.length) {
-      if (time > 100) {
-        const newPlayerSet = movePlayerSetDown({
-          board,
-          playerSet,
-        });
-        if (newPlayerSet) {
-          setPlayerSet?.(newPlayerSet);
-          setTime(0);
-        }
-      } else {
-        setTime(time + delta);
-      }
-    }
-  });
+export function useGenerateTextures() {
+  const { board, playerSet } = useContext(PuyoPuyoContext);
 
   const mapTextures = useCallback(() => {
     let map = [];

@@ -7,3 +7,5 @@ export * from "./movePlayerSetRight/movePlayerSetRight";
 export * from "./setPlayerSlimInBoard/setPlayerSlimInBoard";
 export * from "./rotatePlayerSetToLeft/rotatePlayerSetToLeft";
 export * from "./rotatePlayerSetToRight/rotatePlayerSetToRight";
+export * from "./detectPlayerSetEnd/detectPlayerSetEnd";
+export * from "./createNewPlayerSet/createNewPlayerSet";

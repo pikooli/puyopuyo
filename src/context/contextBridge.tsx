@@ -1,11 +1,11 @@
 import React from "react";
-import type { PuyoPuyoState } from "./contextType";
+import type { ContextValue } from "@/types";
 
 export const ContextBridge = (props: React.PropsWithChildren<any>) => {
   const { children, Context, render } = props;
   return (
     <Context.Consumer>
-      {(value: PuyoPuyoState) =>
+      {(value: ContextValue) =>
         render(<Context.Provider value={value}>{children}</Context.Provider>)
       }
     </Context.Consumer>

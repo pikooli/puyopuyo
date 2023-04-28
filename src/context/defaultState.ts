@@ -12,7 +12,7 @@ export const defaultBoard :Board= [
   '', '', '', '', '', '',
   '', '', '', '', '', '',
   '', '', '', '', '', '',
-  'y', 'y', 'y', 'y', 'y', 'y'
+  '', '', 'y', 'y', 'y', 'y'
 ]
 
 export const defaultPlayerSet: PlayerSet = [

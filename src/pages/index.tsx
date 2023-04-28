@@ -1,20 +1,17 @@
+import { Game } from "@/game";
 import React from "react";
-import { Inter } from "next/font/google";
 import { PuyoPuyoContext, ContextBridge } from "@/context";
-import { useGame } from "@/hooks";
-import { GameStage } from "@/game";
+import { useGameContext } from "@/hooks";
 import { MAP_HEIGHT, MAP_WIDTH } from "@/constants";
 import { Stage } from "@pixi/react";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
-  const contextValue = useGame();
+  const contextValue = useGameContext();
 
   return (
     <PuyoPuyoContext.Provider value={contextValue}>
       <main
-        className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
+        className={`flex min-h-screen flex-col items-center justify-between p-24`}
       >
         <ContextBridge
           Context={PuyoPuyoContext}
@@ -30,7 +27,7 @@ export default function Home() {
             </Stage>
           )}
         >
-          <GameStage />
+          <Game />
         </ContextBridge>
       </main>
     </PuyoPuyoContext.Provider>

@@ -1,29 +1,60 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useContext } from "react";
 import { KEY_MOVE } from "@/constants";
 import { ArrowKey } from "@/types";
+import {
+  moveAllElementsDown,
+  movePlayerSetLeft,
+  movePlayerSetRight,
+  setPlayerSlimInBoard,
+} from "@/utils/";
+import { PuyoPuyoContext } from "@/context";
 
-export interface UseMoveKeydown {
-  reactToMove(move: ArrowKey): void;
-}
-
-export function useMoveKeydown(props: UseMoveKeydown) {
-  const { reactToMove } = props;
+export function useMoveKeydown() {
+  const { board, setBoard, setPlayerSet, playerSet } =
+    useContext(PuyoPuyoContext);
 
   const keydown = useCallback(
     (e: KeyboardEvent) => {
       const move = KEY_MOVE[e.code as ArrowKey];
       if (move) {
         e.preventDefault();
-        reactToMove(move);
+        switch (move) {
+          case KEY_MOVE["ArrowDown"]:
+            const newBoard = setPlayerSlimInBoard({
+              board: board,
+              playerSet,
+            });
+            setPlayerSet([]);
+            setBoard(moveAllElementsDown(newBoard));
+            break;
+          case KEY_MOVE["ArrowRight"]:
+            setPlayerSet((prev) => {
+              const newPlayerSet = movePlayerSetRight({
+                board,
+                playerSet: prev,
+              });
+              return newPlayerSet || prev;
+            });
+            break;
+          case KEY_MOVE["ArrowLeft"]:
+            setPlayerSet((prev) => {
+              const newPlayerSet = movePlayerSetLeft({
+                board,
+                playerSet: prev,
+              });
+              return newPlayerSet || prev;
+            });
+            break;
+        }
       }
     },
-    [reactToMove]
+    [board, playerSet, setBoard, setPlayerSet]
   );
 
   useEffect(() => {
     window.document.addEventListener("keydown", keydown);
-    return () => {
-      window.removeEventListener("keydown", keydown);
+    return function () {
+      window.document.removeEventListener("keydown", keydown);
     };
   }, [keydown]);
 }

@@ -1,8 +1,10 @@
 import { createContext } from "react";
 import { defaultBoard, defaultPlayerSet } from "./defaultState";
-import { PuyoPuyoState } from "@/types";
+import { ContextValue } from "@/types";
 
-export const PuyoPuyoContext = createContext<PuyoPuyoState>({
+export const PuyoPuyoContext = createContext<ContextValue>({
   board: defaultBoard,
   playerSet: defaultPlayerSet,
+  setBoard: () => {},
+  setPlayerSet: () => {},
 });

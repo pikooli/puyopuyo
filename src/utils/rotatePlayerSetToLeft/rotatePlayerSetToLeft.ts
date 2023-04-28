@@ -90,9 +90,9 @@ export function rotatePlayerSetToLeft(
   }
 
   let result;
-  result = slim1HigherThanSlim2(props);
+  result = slim2HigherThanSlim1(props);
   result = result || slim2ToTheLeftOfSlim1(props);
-  result = result || slim2HigherThanSlim1(props);
+  result = result || slim1HigherThanSlim2(props);
   result = result || slim1ToTheLeftOfSlim2(props);
   return result;
 }
