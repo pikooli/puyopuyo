@@ -2,7 +2,10 @@ import { moveAllElementsDown } from "./moveAllElementsDown";
 import { Board } from "@/types";
 
 describe("moveAllElementsDown", () => {
-  it("moves elements down to fill empty spaces at the bottom of their respective rows", () => {
+  it(`
+      Given a board with a set of slim at the top
+      When call moveAllElementsDown
+      Then it should return a board with the set moved to the bottom wit hthe same alignement`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'g', '', '', '',

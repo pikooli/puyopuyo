@@ -1,3 +1,2 @@
-export { PuyoPuyoContext } from "./provider";
-export * from "./defaultState";
+export * from "./provider";
 export { ContextBridge } from "./contextBridge";

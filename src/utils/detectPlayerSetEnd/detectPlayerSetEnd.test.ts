@@ -3,7 +3,9 @@ import { Board, PlayerSet } from "@/types";
 
 describe("detectPlayerSetEnd", () => {
   test(`
-        test1`, () => {
+        Given a board with a set of slim positionned before the bottom
+        When call detectPlayerSetEnd
+        Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', '',
@@ -29,7 +31,9 @@ describe("detectPlayerSetEnd", () => {
   });
 
   test(`
-        test2`, () => {
+        Given a board with a set of slim positionned at the bottom
+        When call detectPlayerSetEnd
+        Then it should return true`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', '',
@@ -55,7 +59,9 @@ describe("detectPlayerSetEnd", () => {
   });
 
   test(`
-        test3`, () => {
+        Given a board with the slim 1 that are above another slim
+        When call detectPlayerSetEnd
+        Then it should return true`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', '',
@@ -81,7 +87,9 @@ describe("detectPlayerSetEnd", () => {
   });
 
   test(`
-        test4`, () => {
+        Given a board with the slim 2 that are above another slim
+        When call detectPlayerSetEnd
+        Then it should return true`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', '',
@@ -107,7 +115,11 @@ describe("detectPlayerSetEnd", () => {
   });
 
   test(`
-        test5`, () => {
+        Given a board with the set of slims vertically aligned
+          And slim 1 is above slim 2
+          And are above another slim
+        When call detectPlayerSetEnd
+        Then it should return true`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', '',
@@ -133,7 +145,11 @@ describe("detectPlayerSetEnd", () => {
   });
 
   test(`
-        test6`, () => {
+        Given a board with the set of slims vertically aligned
+          And slim 2 is above slim 1
+          And are above another slim
+        When call detectPlayerSetEnd
+        Then it should return true`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', '',
@@ -152,32 +168,6 @@ describe("detectPlayerSetEnd", () => {
     const playerSet: PlayerSet = [
       { color: "g", position: 62 },
       { color: "r", position: 56 },
-    ];
-    const result = detectPlayerSetEnd({ board, playerSet });
-
-    expect(result).toBe(true);
-  });
-
-  test(`
-        test6`, () => {
-    // prettier-ignore
-    const board :Board= [
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', 'r', '', '', '',
-      '', '', 'g', '', '', '',
-      '', '', 'y', '', '', ''
-    ]
-    const playerSet: PlayerSet = [
-      { color: "g", position: 56 },
-      { color: "r", position: 62 },
     ];
     const result = detectPlayerSetEnd({ board, playerSet });
 

@@ -2,7 +2,10 @@ import { rotatePlayerSetToLeft } from "./rotatePlayerSetToLeft";
 import { Board, PlayerSet } from "@/types";
 
 describe("rotatePlayerSetToLeft", () => {
-  it("test1", () => {
+  it(`
+      Given a set of slim
+      When call rotatePlayerSetToLeft
+      Then it should return a set with slim 2 that have rotate to the left`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'g', '', '', '',
@@ -37,7 +40,10 @@ describe("rotatePlayerSetToLeft", () => {
     );
   });
 
-  it("test1.1", () => {
+  it(`
+      Given a set of slim with a slim at the left of the slim 1
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       'y', 'g', '', '', '', '',
@@ -62,7 +68,10 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test1.2", () => {
+  it(`
+      Given a set of slim with a slim at the left of the slim 2
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', 'g', '', '', '', '',
@@ -87,7 +96,10 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test1.3", () => {
+  it(`
+      Given a set of slim at the very left
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       'g', '', '', '', '', '',
@@ -112,7 +124,10 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test2.1", () => {
+  it(`
+      Given a set of slim aligner horizontally at the very top
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', 'r', 'g', '', '', '',
@@ -138,7 +153,10 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test2.1", () => {
+  it(`
+      Given a set of slim aligner horizontally at below of the top
+      When call rotatePlayerSetToLeft
+      Then it should change the position of the slim 2`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', '',
@@ -173,7 +191,11 @@ describe("rotatePlayerSetToLeft", () => {
     );
   });
 
-  it("test2.2", () => {
+  it(`
+      Given a set of slim aligner horizontally at below of the top
+        And a slim is at the top of slim 1
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'y', '', '', '',
@@ -198,7 +220,11 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test2.3", () => {
+  it(`
+      Given a set of slim aligner horizontally at below of the top
+        And a slim is at the top of slim 2
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', 'y', '', '', '', '',
@@ -223,7 +249,10 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test3.1", () => {
+  it(`
+      Given a set of slim aligner vertically at the very top
+      When call rotatePlayerSetToLeft
+      Then it should change the position of the slim 2`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'r', '', '', '',
@@ -258,7 +287,10 @@ describe("rotatePlayerSetToLeft", () => {
     );
   });
 
-  it("test3.2", () => {
+  it(`
+      Given a set of slim aligner vertically at the very left
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', 'r',
@@ -284,7 +316,11 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test3.3", () => {
+  it(`
+      Given a set of slim aligner horizontally
+        And a slim is at the left of slim 2
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'r', 'y', '', '',
@@ -309,7 +345,11 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test3.4", () => {
+  it(`
+      Given a set of slim aligner horizontally
+        And a slim is at the left of slim 1
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'r', '', '', '',
@@ -334,7 +374,10 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test4.1", () => {
+  it(`
+      Given a set of slim aligner horizontally at the very top
+      When call rotatePlayerSetToLeft
+      Then it should change the position of the slim 2`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'g', 'r', '', '',
@@ -369,7 +412,11 @@ describe("rotatePlayerSetToLeft", () => {
     );
   });
 
-  it("test4.2", () => {
+  it(`
+      Given a set of slim aligner vertically at the very top
+        And a slim is below slim 2
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'g', 'r', '', '',
@@ -394,7 +441,11 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test4.3", () => {
+  it(`
+      Given a set of slim aligner horizontally at the very top
+        And a slim is below slim 1
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'g', 'r', '', '',
@@ -419,7 +470,10 @@ describe("rotatePlayerSetToLeft", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("test4.3", () => {
+  it(`
+      Given a set of slim aligner horizontally at the very bottom
+      When call rotatePlayerSetToLeft
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'g', 'r', '', '',

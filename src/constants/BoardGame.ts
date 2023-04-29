@@ -1,4 +1,5 @@
 import { ArrowKey, ActionKey, SlimeColor } from "@/types";
+import { Board, PlayerSet } from "@/types";
 
 export const NUM_ROWS = 6;
 export const NUM_COLS = 12;
@@ -21,3 +22,44 @@ export const KEY_ACTION: { [key in ActionKey]: string } = {
 };
 
 export const SLIM_COLORS: SlimeColor[] = ["r", "g", "b", "y"];
+// prettier-ignore
+export const DEFAULT_BOARD :Board= [
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', '',
+  '', '', '', '', '', ''
+]
+
+// // prettier-ignore
+// export const DEFAULT_BOARD :Board= [
+//   '', '', '', '', '', '',
+//   '', '', '', '', '', '',
+//   '', '', 'r', '', '', '',
+//   '', '', 'r', '', '', '',
+//   '', '', 'r', '', '', '',
+//   '', '', 'y', '', '', '',
+//   '', '', 'y', '', '', '',
+//   '', '', 'y', '', '', '',
+//   '', '', 'y', '', '', '',
+//   '', '', 'b', '', '', '',
+//   '', '', 'b', '', '', '',
+//   '', '', 'b', 'b', 'y', 'y'
+// ]
+
+export const DEFAULT_TICK_NUMBER = 20;
+
+export const DEFAULT_PLAYER_SET: PlayerSet = [
+  { color: "g", position: 2 },
+  { color: "r", position: 8 },
+];
+
+export const DEFAULT_COMBO = 1;
+export const DEFAULT_LVL = 0;

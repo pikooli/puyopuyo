@@ -4,41 +4,53 @@ import { useTick } from "@pixi/react";
 import {
   movePlayerSetDown,
   detectPlayerSetEnd,
-  createNewPlayerSet,
   setPlayerSlimInBoard,
+  moveAllElementsDown,
 } from "@/utils/";
 
 export function useGameTime() {
-  const { board, playerSet, setPlayerSet, setBoard } =
-    useContext(PuyoPuyoContext);
-  const [time, setTime] = useState(0);
+  const {
+    board,
+    playerSet,
+    setPlayerSet,
+    setBoard,
+    setIsResolveTriggered,
+    isGameOver,
+    tickNumber,
+    time,
+    setTime,
+    gameReset,
+  } = useContext(PuyoPuyoContext);
 
-  useTick((delta) => {
-    if (playerSet.length) {
-      if (time > 20) {
-        const newPlayerSet = movePlayerSetDown({
+  useTick(() => {
+    if (playerSet.length && !isGameOver && !gameReset) {
+      if (time > tickNumber) {
+        const newPlayerSet =
+          movePlayerSetDown({
+            board,
+            playerSet,
+          }) || playerSet;
+
+        const shouldBePlaced = detectPlayerSetEnd({
           board,
-          playerSet,
+          playerSet: newPlayerSet,
         });
-        if (newPlayerSet) {
-          const shouldBePlaced = detectPlayerSetEnd({
+
+        if (shouldBePlaced) {
+          const newBoard = setPlayerSlimInBoard({
             board,
             playerSet: newPlayerSet,
           });
-          if (shouldBePlaced) {
-            const newBoard = setPlayerSlimInBoard({
-              board,
-              playerSet: newPlayerSet,
-            });
-            setBoard(newBoard);
-            setPlayerSet(createNewPlayerSet());
-          } else {
-            setPlayerSet(newPlayerSet);
-          }
-          setTime(0);
+
+          setBoard(moveAllElementsDown(newBoard));
+
+          setIsResolveTriggered(true);
+        } else {
+          setPlayerSet(newPlayerSet);
         }
+        setTime(0);
       } else {
-        setTime(time + delta);
+        setTime(time + 1);
       }
     }
   });

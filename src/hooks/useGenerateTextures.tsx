@@ -8,8 +8,9 @@ import { PuyoPuyoContext } from "@/context";
 export function useGenerateTextures() {
   const { board, playerSet } = useContext(PuyoPuyoContext);
 
-  const mapTextures = useCallback(() => {
+  const boardTextures = useCallback(() => {
     let map = [];
+
     for (let i = 0; i < board.length; i++) {
       const image = conversionMap[board[i]];
       if (!image) {
@@ -27,21 +28,25 @@ export function useGenerateTextures() {
         />
       );
     }
+
     return map;
   }, [board]);
 
-  const playerTextures = useCallback(() => {
-    let map = [];
+  const playerSlimsTextures = useCallback(() => {
+    let slimTextures = [];
+
     for (let i = 0; i < playerSet.length; i++) {
       const playerSlim = playerSet[i];
       const image = conversionMap[playerSlim.color];
+
       if (!image) {
         continue;
       }
+
       const x = Math.floor(playerSlim.position % NUM_ROWS);
       const y = Math.floor(playerSlim.position / NUM_ROWS);
 
-      map.push(
+      slimTextures.push(
         <Sprite
           key={`slim-${x}-${y}`}
           image={image}
@@ -50,11 +55,12 @@ export function useGenerateTextures() {
         />
       );
     }
-    return map;
+
+    return slimTextures;
   }, [playerSet]);
 
   return {
-    mapTextures,
-    playerTextures,
+    boardTextures,
+    playerSlimsTextures,
   };
 }

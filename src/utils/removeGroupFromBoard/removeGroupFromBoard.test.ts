@@ -1,13 +1,15 @@
-import { setPlayerSlimInBoard } from "./setPlayerSlimInBoard";
-import { Board, PlayerSet } from "@/types";
+import { Board } from "@/types";
 
-describe("setPlayerSlimInBoard", () => {
-  it(`
-      Given a set of slim and a board
-      When call setPlayerSlimInBoard
-      Then the return board should be equal at the expected board`, () => {
+import { removeGroupFromBoard } from "./removeGroupFromBoard";
+
+describe("removeGroupFromBoard", () => {
+  test(`
+        Given a board with a group of slim
+        When call removeGroupFromBoard with the board and the index of the group of slim
+        Then it should return a board without this group of slim`, () => {
     // prettier-ignore
     const board :Board= [
+      'y', 'y', 'y', 'y', '', '',
       '', '', '', '', '', '',
       '', '', '', '', '', '',
       '', '', '', '', '', '',
@@ -18,18 +20,11 @@ describe("setPlayerSlimInBoard", () => {
       '', '', '', '', '', '',
       '', '', '', '', '', '',
       '', '', '', '', '', '',
-      '', '', '', '', '', '',
-      '', '', '', '', 'y', ''
+      '', '', '', '', '', ''
     ]
-    const playerSet: PlayerSet = [
-      { color: "g", position: 2 },
-      { color: "r", position: 8 },
-    ];
 
     // prettier-ignore
     const expectedBoard :Board= [
-      '', '', 'g', '', '', '',
-      '', '', 'r', '', '', '',
       '', '', '', '', '', '',
       '', '', '', '', '', '',
       '', '', '', '', '', '',
@@ -39,10 +34,14 @@ describe("setPlayerSlimInBoard", () => {
       '', '', '', '', '', '',
       '', '', '', '', '', '',
       '', '', '', '', '', '',
-      '', '', '', '', 'y', ''
+      '', '', '', '', '', '',
+      '', '', '', '', '', '',
+      '', '', '', '', '', ''
     ]
-
-    const newBoard = setPlayerSlimInBoard({ board, playerSet });
-    expect(newBoard).toEqual(expectedBoard);
+    const result = removeGroupFromBoard({
+      board,
+      indexes: [0, 1, 2, 3],
+    });
+    expect(result).toEqual(expectedBoard);
   });
 });

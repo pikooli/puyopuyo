@@ -1,14 +1,15 @@
 export type GameViewProps = {
-  mapTextures(): JSX.Element[];
-  playerTextures(): JSX.Element[];
+  boardTextures(): JSX.Element[];
+  playerSlimsTextures(): JSX.Element[];
 };
 
 export const GameView = (props: GameViewProps) => {
-  const { mapTextures, playerTextures } = props;
+  const { boardTextures, playerSlimsTextures } = props;
+
   return (
     <>
-      {mapTextures()}
-      {playerTextures()}
+      {boardTextures()}
+      {playerSlimsTextures()}
     </>
   );
 };

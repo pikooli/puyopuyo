@@ -2,7 +2,10 @@ import { movePlayerSetRight } from "./movePlayerSetRight";
 import { Board, PlayerSet } from "@/types";
 
 describe("movePlayerSetRight", () => {
-  it("moves elements down to fill empty spaces at the bottom of their respective rows one time", () => {
+  it(`
+      Given a set of slim
+      When call movePlayerSetRight
+      Then it should return a set with slim that have move to the right`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'g', '', '', '',
@@ -37,7 +40,10 @@ describe("movePlayerSetRight", () => {
     );
   });
 
-  it("", () => {
+  it(`
+      Given a set of slim with a slim at the right of one of them
+      When call movePlayerSetRight
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', 'g', 'y',
@@ -62,7 +68,10 @@ describe("movePlayerSetRight", () => {
     expect(newPlayerSet).toEqual(null);
   });
 
-  it("", () => {
+  it(`
+      Given a set of slim at the very right of the board
+      When call movePlayerSetRight
+      Then it should return null`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', '', '', '', 'g',

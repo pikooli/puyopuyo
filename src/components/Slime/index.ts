@@ -1,1 +1,1 @@
-export { Slime } from "./Slime.container";
+export { Slime } from "./Slime";

@@ -9,3 +9,7 @@ export * from "./rotatePlayerSetToLeft/rotatePlayerSetToLeft";
 export * from "./rotatePlayerSetToRight/rotatePlayerSetToRight";
 export * from "./detectPlayerSetEnd/detectPlayerSetEnd";
 export * from "./createNewPlayerSet/createNewPlayerSet";
+export * from "./removeGroupFromBoard/removeGroupFromBoard";
+export * from "./detectGameOver/detectGameOver";
+export * from "./logSixRow";
+export * from "./generateNewBoard";

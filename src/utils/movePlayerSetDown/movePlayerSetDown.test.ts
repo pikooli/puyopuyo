@@ -2,7 +2,10 @@ import { movePlayerSetDown } from "./movePlayerSetDown";
 import { Board, PlayerSet } from "@/types";
 
 describe("moveElementsDown", () => {
-  it("moves elements down to fill empty spaces at the bottom of their respective rows one time", () => {
+  it(`
+      Given a board with a set of slim at the top
+      When call moveElementsDown
+      Then it should return a board with the set moved one block lower`, () => {
     // prettier-ignore
     const board :Board= [
       '', '', 'g', '', '', '',

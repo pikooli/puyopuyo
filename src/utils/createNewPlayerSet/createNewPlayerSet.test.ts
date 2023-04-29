@@ -2,7 +2,9 @@ import { createNewPlayerSet } from "./createNewPlayerSet";
 import { SLIM_COLORS } from "@/constants";
 describe("createNewPlayerSet", () => {
   test(`
-        `, () => {
+        Given initial state
+        When createNewPlayerSet is called
+        Then it should return the a set of slim with a position and a color`, () => {
     const result = createNewPlayerSet();
 
     expect(result[0].position).toBe(2);

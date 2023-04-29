@@ -10,45 +10,63 @@ import {
 import { PuyoPuyoContext } from "@/context";
 
 export function useMoveKeydown() {
-  const { board, setBoard, setPlayerSet, playerSet } =
-    useContext(PuyoPuyoContext);
+  const {
+    board,
+    setBoard,
+    setPlayerSet,
+    playerSet,
+    setIsResolveTriggered,
+    isGameOver,
+  } = useContext(PuyoPuyoContext);
+
+  const handleArrowDown = useCallback(() => {
+    const newBoard = setPlayerSlimInBoard({
+      board: board,
+      playerSet,
+    });
+    setBoard(moveAllElementsDown(newBoard));
+    setIsResolveTriggered(true);
+  }, [board, playerSet, setBoard, setIsResolveTriggered]);
+
+  const handleArrowRight = useCallback(() => {
+    setPlayerSet((prev) => {
+      const newPlayerSet = movePlayerSetRight({
+        board,
+        playerSet: prev,
+      });
+      return newPlayerSet || prev;
+    });
+  }, [board, setPlayerSet]);
+
+  const handleArrowLeft = useCallback(() => {
+    setPlayerSet((prev) => {
+      const newPlayerSet = movePlayerSetLeft({
+        board,
+        playerSet: prev,
+      });
+      return newPlayerSet || prev;
+    });
+  }, [board, setPlayerSet]);
 
   const keydown = useCallback(
     (e: KeyboardEvent) => {
       const move = KEY_MOVE[e.code as ArrowKey];
-      if (move) {
+      if (move && !isGameOver) {
         e.preventDefault();
         switch (move) {
           case KEY_MOVE["ArrowDown"]:
-            const newBoard = setPlayerSlimInBoard({
-              board: board,
-              playerSet,
-            });
-            setPlayerSet([]);
-            setBoard(moveAllElementsDown(newBoard));
+            handleArrowDown();
             break;
           case KEY_MOVE["ArrowRight"]:
-            setPlayerSet((prev) => {
-              const newPlayerSet = movePlayerSetRight({
-                board,
-                playerSet: prev,
-              });
-              return newPlayerSet || prev;
-            });
+            handleArrowRight();
             break;
           case KEY_MOVE["ArrowLeft"]:
-            setPlayerSet((prev) => {
-              const newPlayerSet = movePlayerSetLeft({
-                board,
-                playerSet: prev,
-              });
-              return newPlayerSet || prev;
-            });
+            handleArrowLeft();
             break;
         }
       }
     },
-    [board, playerSet, setBoard, setPlayerSet]
+    [handleArrowDown, handleArrowLeft, handleArrowRight, isGameOver]
   );
 
   useEffect(() => {
