@@ -18,5 +18,5 @@ export function setPlayerSlimInBoard(props: MovePlayerSetRight): Board {
   board[slim1.position] = slim1.color;
   board[slim2.position] = slim2.color;
 
-  return [...board];
+  return board;
 }

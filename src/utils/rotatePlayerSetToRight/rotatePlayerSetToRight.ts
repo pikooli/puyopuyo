@@ -17,10 +17,7 @@ const slim1HigherThanSlim2 = (props: RotatePlayerSetToRight) => {
     !board[slim2.position + 1] &&
     slim2.position % NUM_ROWS !== NUM_ROWS - 1
   ) {
-    return [
-      { ...slim1 },
-      { ...slim2, position: slim2.position - NUM_ROWS + 1 },
-    ];
+    return [slim1, { ...slim2, position: slim2.position - NUM_ROWS + 1 }];
   }
   return null;
 };
@@ -36,10 +33,7 @@ const slim2ToTheLeftOfSlim1 = (props: RotatePlayerSetToRight) => {
     !board[slim2.position + NUM_ROWS] &&
     slim2.position + NUM_ROWS < board.length
   ) {
-    return [
-      { ...slim1 },
-      { ...slim2, position: slim2.position + NUM_ROWS + 1 },
-    ];
+    return [slim1, { ...slim2, position: slim2.position + NUM_ROWS + 1 }];
   }
   return null;
 };
@@ -55,10 +49,7 @@ const slim2HigherThanSlim1 = (props: RotatePlayerSetToRight) => {
     !board[slim2.position - 1] &&
     slim2.position % NUM_ROWS !== 0
   ) {
-    return [
-      { ...slim1 },
-      { ...slim2, position: slim2.position + NUM_ROWS - 1 },
-    ];
+    return [slim1, { ...slim2, position: slim2.position + NUM_ROWS - 1 }];
   }
   return null;
 };
@@ -74,10 +65,7 @@ const slim1ToTheLeftOfSlim2 = (props: RotatePlayerSetToRight) => {
     !board[slim2.position - NUM_ROWS] &&
     slim2.position - NUM_ROWS > 0
   ) {
-    return [
-      { ...slim1 },
-      { ...slim2, position: slim2.position - NUM_ROWS - 1 },
-    ];
+    return [slim1, { ...slim2, position: slim2.position - NUM_ROWS - 1 }];
   }
   return null;
 };
