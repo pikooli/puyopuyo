@@ -25,6 +25,10 @@ You can move with the arrow keyboard
 
 **Key Z** rotate the set of slim to the right
 
+
+You can play the game here [PuyoPuyo](https://puyopuyo.vercel.app/)
+
+
 To launch test :
 
 ## Test
