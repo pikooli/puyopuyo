@@ -29,8 +29,6 @@ You can move with the arrow keyboard
 You can play the game here [PuyoPuyo](https://puyopuyo.vercel.app/)
 
 
-To launch test :
-
 ## Test
 
 ```bash
