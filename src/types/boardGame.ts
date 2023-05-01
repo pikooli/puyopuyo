@@ -1,9 +1,9 @@
 export type BoardGame = JSX.Element[][];
-export type SlimeColor = "" | "r" | "b" | "g" | "y";
-export type Board = SlimeColor[];
+export type SlimColor = "" | "r" | "b" | "g" | "y";
+export type Board = SlimColor[];
 export type ArrowKey = "ArrowUp" | "ArrowDown" | "ArrowLeft" | "ArrowRight";
 export type ActionKey = "KeyQ" | "KeyW";
-export type PlayerSlim = { color: SlimeColor; position: number };
+export type PlayerSlim = { color: SlimColor; position: number };
 export type PlayerSet = PlayerSlim[];
 
 export interface Position {

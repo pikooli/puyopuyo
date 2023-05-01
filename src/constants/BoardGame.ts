@@ -1,4 +1,4 @@
-import { ArrowKey, ActionKey, SlimeColor } from "@/types";
+import { ArrowKey, ActionKey, SlimColor } from "@/types";
 import { Board, PlayerSet } from "@/types";
 
 export const NUM_ROWS = 6;
@@ -21,7 +21,7 @@ export const KEY_ACTION: { [key in ActionKey]: string } = {
   KeyW: "KeyW",
 };
 
-export const SLIM_COLORS: SlimeColor[] = ["r", "g", "b", "y"];
+export const SLIM_COLORS: SlimColor[] = ["r", "g", "b", "y"];
 // prettier-ignore
 export const DEFAULT_BOARD :Board= [
   '', '', '', '', '', '',

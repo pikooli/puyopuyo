@@ -1,4 +1,4 @@
-export * from "./slime";
+export * from "./slim";
 export * from "./nextPlayerSet";
 export * from "./score";
 export * from "./combo";
