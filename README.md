@@ -32,5 +32,5 @@ You can play the game here [PuyoPuyo](https://puyopuyo.vercel.app/)
 ## Test
 
 ```bash
-npm run dev
+npm run test
 ```
